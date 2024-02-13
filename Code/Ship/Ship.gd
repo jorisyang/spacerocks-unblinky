@@ -1,8 +1,13 @@
 extends ScreenWrapper
 class_name Ship
 
+const BULLET = preload("res://Bullet/Bullet.tscn")
+
+var thrust_multiplier: float = 15.0
 
 func _process(delta):
+	super._process(delta)
+	
 	# Navigation.
 	if Input.is_action_pressed("rotate_cw"):
 		rotation_degrees -= 360 * delta
@@ -11,11 +16,20 @@ func _process(delta):
 	
 	# Move Forward.
 	if Input.is_action_pressed("thrust"):
-		print("thrust")
+		var direction = Vector2(cos(-rotation), sin(rotation))
+		velocity += direction * thrust_multiplier
+		#print("thrust: ", velocity)
+	
+	# Update the position
+	position += velocity * delta
 	
 	# Fire.
 	if Input.is_action_just_pressed("fire"):
-		print("Fire!")
+		var bullet = BULLET.instantiate()
+		bullet.position = position
+		bullet.rotation = rotation
+		get_parent().add_child(bullet)
+		#print("Fire!")
 	
 	# Quit.
 	if Input.is_action_just_pressed("quit"):
