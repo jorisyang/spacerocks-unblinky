@@ -19,4 +19,8 @@ func _process(delta):
 
 
 func OnTimedOut():
+	Destroy()
+
+
+func Destroy():
 	queue_free()

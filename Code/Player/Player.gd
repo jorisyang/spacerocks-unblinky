@@ -2,23 +2,33 @@ extends PanelContainer
 class_name Player
 
 const LIFE = preload("res://Player/assets/life.tscn")
+const SHIP = preload("res://Ship/Ship.tscn")
 
 @onready var score_ui = $VBox/ScoreUI
 @onready var lives_ui = $VBox/LivesUI
 
 var score: int = 0
 var lives: int = 0
+var ship: Ship = null
 
 
 func _ready():
 	UpdateScore(0) # TODO: Load player score.
-	UpdateLives(12)
+	UpdateLives(3)
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("launch_ship"):
-		# Testing.
-		UpdateLives(-2)
+		if not ship:
+			SpawnShip()
+			UpdateLives(-1)
+
+
+func SpawnShip():
+	var ship = SHIP.instantiate()
+	ship.position = get_viewport().size / 2
+	get_parent().add_child(ship)
+	self.ship = ship
 
 
 func UpdateScore(delta_score: int):
