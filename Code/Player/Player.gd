@@ -11,13 +11,14 @@ var lives: int = 0
 
 
 func _ready():
-	UpdateLives(3)
+	UpdateScore(0) # TODO: Load player score.
+	UpdateLives(12)
 
 
 func _process(delta):
 	if Input.is_action_just_pressed("launch_ship"):
 		# Testing.
-		UpdateLives(3)
+		UpdateLives(-2)
 
 
 func UpdateScore(delta_score: int):
