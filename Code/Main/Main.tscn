@@ -1,31 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b43n0f8g2tfgg"]
+[gd_scene load_steps=3 format=3 uid="uid://b43n0f8g2tfgg"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1"]
-[ext_resource type="PackedScene" uid="uid://c43mm7i2htnwf" path="res://Rock/Rock.tscn" id="2_emiof"]
-[ext_resource type="PackedScene" uid="uid://54k3t0cgi63o" path="res://Ship/Ship.tscn" id="3_44h4b"]
-[ext_resource type="PackedScene" uid="uid://dayf88gqxfk72" path="res://UFO/UFO.tscn" id="4_hjlsc"]
-[ext_resource type="PackedScene" uid="uid://cgi2mfdjjkr06" path="res://Bullet/Bullet.tscn" id="5_l567i"]
+[ext_resource type="PackedScene" uid="uid://djaufws1kejv" path="res://Player/Player.tscn" id="2_yh0wh"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1")
 
-[node name="Rock3" parent="." instance=ExtResource("2_emiof")]
-position = Vector2(96, 235)
-
-[node name="Rock4" parent="." instance=ExtResource("2_emiof")]
-position = Vector2(89, 495)
-
-[node name="Rock5" parent="." instance=ExtResource("2_emiof")]
-position = Vector2(276, 731)
-
-[node name="Rock6" parent="." instance=ExtResource("2_emiof")]
-position = Vector2(392, 157)
-
-[node name="Ship" parent="." instance=ExtResource("3_44h4b")]
-position = Vector2(419, 481)
-
-[node name="Ufo" parent="." instance=ExtResource("4_hjlsc")]
-position = Vector2(1079, 563)
-
-[node name="Bullet" parent="." instance=ExtResource("5_l567i")]
-position = Vector2(227, 296)
+[node name="Player" parent="." instance=ExtResource("2_yh0wh")]

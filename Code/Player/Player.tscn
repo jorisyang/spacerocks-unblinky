@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://djaufws1kejv"]
+
+[ext_resource type="PackedScene" uid="uid://devp4upims467" path="res://Player/assets/life.tscn" id="1_8u2ld"]
+[ext_resource type="Script" path="res://Player/Player.gd" id="1_qfwwv"]
+
+[node name="Player" type="PanelContainer"]
+script = ExtResource("1_qfwwv")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ScoreUI" type="Label" parent="VBox"]
+layout_mode = 2
+text = "0123456789"
+
+[node name="LivesUI" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Life" parent="VBox/LivesUI" instance=ExtResource("1_8u2ld")]
+layout_mode = 2
