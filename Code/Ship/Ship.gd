@@ -3,6 +3,7 @@ class_name Ship
 
 const BULLET = preload("res://Bullet/Bullet.tscn")
 
+var playar: Playar
 var thrust_multiplier: float = 15.0
 
 func _process(delta):
@@ -26,6 +27,7 @@ func _process(delta):
 	# Fire.
 	if Input.is_action_just_pressed("fire"):
 		var bullet = BULLET.instantiate()
+		bullet.ship = self
 		bullet.position = position
 		bullet.rotation = rotation
 		get_parent().add_child(bullet)

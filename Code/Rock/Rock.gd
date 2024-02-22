@@ -28,8 +28,6 @@ func Destroy():
 		# Spawn 2 smaller rocks.
 		for r in 2:
 			var new_rock = duplicate()
-			#var new_rock = ROCK.instantiate()
-			#new_rock.position = position
 			new_rock.scale *= 0.5
 			get_parent().call_deferred("add_child", new_rock)
 	
@@ -38,9 +36,11 @@ func Destroy():
 
 func OnAreaEntered(other_area: Area2D):
 	if other_area is Bullet:
+		other_area.ship.playar.UpdateScore(20)
 		other_area.Destroy()
 		Destroy()
 	
 	if other_area is Ship:
 		other_area.Destroy()
+		other_area.playar.UpdateScore(-100) # TODO: Is this fun?
 		Destroy()

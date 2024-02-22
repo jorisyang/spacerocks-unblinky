@@ -3,6 +3,8 @@ class_name Bullet
 
 @onready var timer = $Timer
 
+var ship: Ship
+
 var thrust_multiplier: float = 800
 var direction: Vector2
 
