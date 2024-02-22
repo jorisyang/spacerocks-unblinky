@@ -12,3 +12,4 @@ func _ready():
 func OnSpawnUFO():
 	var ufo = UFO.instantiate()
 	add_child(ufo)
+	#ufo_timer.wait_time *= 0.5

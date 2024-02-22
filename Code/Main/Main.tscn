@@ -9,4 +9,5 @@ script = ExtResource("1")
 [node name="Player" parent="." instance=ExtResource("2_yh0wh")]
 
 [node name="UFOTimer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true

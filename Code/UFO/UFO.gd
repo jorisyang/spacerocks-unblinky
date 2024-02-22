@@ -1,7 +1,10 @@
 extends Area2D
 class_name UFO
 
-@onready var timer: Timer = $Timer
+const BULLET = preload("res://Bullet/Bullet.tscn")
+
+@onready var move_timer = $MoveTimer
+@onready var shot_timer = $ShotTimer
 
 var speed: float = 80.0 # px / sec.
 
@@ -10,7 +13,8 @@ var y_direction: int
 
 
 func _ready():
-	timer.timeout.connect(OnTimedOut)
+	move_timer.timeout.connect(OnTimedOut)
+	shot_timer.timeout.connect(OnShotFired)
 	
 	# Which way on the X axis?
 	if randi() % 2:
@@ -33,3 +37,10 @@ func OnTimedOut():
 		y_direction = 0
 	else:
 		y_direction = randi_range(-1, 1)
+
+
+func OnShotFired():
+	var bullet = BULLET.instantiate()
+	bullet.position = position
+	bullet.rotation_degrees = randf_range(-180, 180)
+	get_parent().add_child(bullet)
