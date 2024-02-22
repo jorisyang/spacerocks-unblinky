@@ -31,10 +31,9 @@ func Destroy():
 			#var new_rock = ROCK.instantiate()
 			#new_rock.position = position
 			new_rock.scale *= 0.5
-			get_parent().add_child(new_rock)
+			get_parent().call_deferred("add_child", new_rock)
 	
-	# FIXME: WTF!
-	call_deferred("queue_free")
+	queue_free()
 
 
 func OnAreaEntered(other_area: Area2D):
