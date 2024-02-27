@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b43n0f8g2tfgg"]
+[gd_scene load_steps=5 format=3 uid="uid://b43n0f8g2tfgg"]
 
 [ext_resource type="Script" path="res://Main/Main.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://c43mm7i2htnwf" path="res://Rock/Rock.tscn" id="2_emiof"]
-[ext_resource type="PackedScene" uid="uid://hoedrmupa7h8" path="res://Playar/Playar.tscn" id="2_ttxne"]
+[ext_resource type="PackedScene" uid="uid://54k3t0cgi63o" path="res://Ship/Ship.tscn" id="4_cxocx"]
+[ext_resource type="PackedScene" uid="uid://djaufws1kejv" path="res://Player/Player.tscn" id="5_qle8i"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1")
@@ -11,7 +12,14 @@ script = ExtResource("1")
 wait_time = 10.0
 autostart = true
 
-[node name="Playar" parent="." instance=ExtResource("2_ttxne")]
-
 [node name="Rock" parent="." instance=ExtResource("2_emiof")]
 position = Vector2(273, 408)
+
+[node name="Ship" parent="." instance=ExtResource("4_cxocx")]
+position = Vector2(259, 761)
+rotation = -1.57353
+
+[node name="Player" parent="." instance=ExtResource("5_qle8i")]
+offset_left = 2.0
+offset_right = 94.0
+offset_bottom = 59.0

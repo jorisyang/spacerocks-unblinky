@@ -3,7 +3,7 @@ class_name ScreenWrapper
 
 var velocity: Vector2
 
-func _process(delta):
+func _process(_delta):
 	if position.x > get_viewport().size.x:
 		position.x = 0
 	if position.y > get_viewport().size.y:

@@ -1,5 +1,5 @@
 extends Area2D
-class_name UFO
+class_name Ufo
 
 const BULLET = preload("res://Bullet/Bullet.tscn")
 

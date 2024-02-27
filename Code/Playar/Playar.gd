@@ -9,7 +9,7 @@ var score: int = 0
 var lives: int = 3
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("launch_ship"):
 		if lives > 0:
 			var ship = SHIP.instantiate()
